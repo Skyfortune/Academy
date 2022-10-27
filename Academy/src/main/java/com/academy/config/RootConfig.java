@@ -25,8 +25,8 @@ public class RootConfig {
 
 		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
 		hikariConfig.setJdbcUrl("jdbc:log4jdbc:oracle:thin:@localhost:1521:orcl");
-		hikariConfig.setUsername("spring");
-		hikariConfig.setPassword("spring");
+		hikariConfig.setUsername("springProject");
+		hikariConfig.setPassword("1234");
 		
 		//여기에서 오류창이 출력한다, 드라이버를 못 찾음
 		HikariDataSource dataSource = new HikariDataSource(hikariConfig);

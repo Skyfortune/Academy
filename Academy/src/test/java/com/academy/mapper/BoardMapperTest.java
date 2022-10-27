@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.academy.domain.BoardVO;
-//import com.example.domain.Criteria;
+//import com.academy.domain.Criteria;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -22,12 +22,12 @@ public class BoardMapperTest {
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
 
-	@Test
+//	@Test
 	public void testGetList() {
 		mapper.getList().forEach(board -> log.info(board));
 	}
 
-//	@Test
+	@Test
 	public void testInsert() {
 
 		BoardVO board = new BoardVO();
