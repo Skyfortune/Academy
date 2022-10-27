@@ -43,4 +43,3 @@ public class RootConfig {
 		return (SqlSessionFactory) sqlSessionFactory.getObject();
 	}
 }
-//테스트
