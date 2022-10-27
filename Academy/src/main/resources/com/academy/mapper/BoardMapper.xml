@@ -5,6 +5,7 @@
 
 <!-- 리스트 -->
 <mapper namespace="com.academy.mapper.BoardMapper">
+
 	<select id="getList" resultType="com.academy.domain.BoardVO">
 		<![CDATA[
 			select * from tbl_board where bno > 0

@@ -8,7 +8,7 @@
  * org.springframework.test.context.ContextConfiguration; import
  * org.springframework.test.context.junit4.SpringRunner;
  * 
- * import com.example.domain.ReplyVO; import com.example.domain.Criteria;
+ * import com.academy.domain.ReplyVO; import com.academy.domain.Criteria;
  * 
  * import lombok.Setter; import lombok.extern.log4j.Log4j;
  * 
