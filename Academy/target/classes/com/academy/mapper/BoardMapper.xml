@@ -29,7 +29,7 @@
 			select seq_board.nextval from dual
 		</selectKey>
 
-		insert into
+		insert into 
 		tbl_board(bno, title, content, writer)
 		values
 		(#{bno},
