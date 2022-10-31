@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 목록 불러오기 -->
+<mapper namespace="com.academy.mapper.BbsMapper">
+
+	<select id="getList" resultType="com.academy.domain.BbsVO">
+		<![CDATA[
+			select * from bbs where bbsid > 0
+			 ]]>
+	</select>
+
+	<!-- 글 작성 -->
+	<insert id="insert">
+		insert into
+					Bbs (bbsID,bbsTitle,bbsContent,userid,bbsdate,studycode)
+		values 
+					(bbs_seq.nextval, #{bbsTitle}, #{bbsContent}, #{userid}, sysdate, #{studycode})
+	</insert>
+
+	<insert id="insertSelectKey">
+		<!-- selectKey는 DB가 실행되기전 별도의 PK값등을 얻기위해 쓴다. -->
+		<selectKey keyProperty="bbsID" order="BEFORE"
+			resultType="long">
+			select bbs_seq.nextval from dual
+		</selectKey>
+
+		insert into
+				Bbs(bbsID, bbsTitle, bbsContent, userid, bbsdate,studycode)
+		values
+				(#{bbsID}, #{bbsTitle}, #{bbsContent}, #{userid}, sysdate, #{studycode})
+	</insert>
+
+	<!-- 한 개의 글 조회 -->
+	<select id="read" resultType="com.academy.domain.BbsVO">
+		select * from Bbs where bbsID = #{bbsID}
+	</select>
+
+	<!-- 글 삭제 -->
+	<delete id="delete">
+		delete Bbs where bbsID = #{bbsID}
+	</delete>
+
+	<!-- 글 수정 -->
+	<update id="update">
+		update 
+				Bbs
+		set 
+				bbsTitle = #{bbsTitle}, bbsContent =#{bbsContent}, bbsID = #{bbsID}, bbsDate = sysdate
+		where
+				bbsID = #{bbsID}
+	</update>
+
+	<select id="getListWithPaging"
+		resultType="com.academy.domain.BbsVO">
+	<![CDATA[
+		select
+				bbsID, bbsTitle, bbsContent, userid, regdate, updatedate
+		from (
+				select
+						/*+INDEX_DESC(Bbs pk_board) */ 
+						rownum rn, bbsID, bbsTitle, bbsContent, userid, regdate, updatedate
+				from
+						Bbs
+				where
+						rownum <= #{pageNum} * #{amount}
+			)
+		where
+				rn > (#{pageNum} -1) * #{amount}
+				
+	]]>
+	</select>
+
+
+
+</mapper>
