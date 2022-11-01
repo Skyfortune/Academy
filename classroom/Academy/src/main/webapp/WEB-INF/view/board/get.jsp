@@ -27,7 +27,7 @@
 					formObj.attr("action", "/board/remove");
 				} else if (operation === 'list') {
 					//self.location = "/board/list";
-					formObj.find("#bno").remove();
+					formObj.find("#bbsID").remove();
 					formObj.attr("action","/board/list")
 				}
 				formObj.submit();
@@ -36,12 +36,12 @@
 	</script>
 	<script type="text/javascript" src="/resources/js/reply.js">
 	
-	var bnoValue = '<c:out value="${board.bno}"/>';
+	var bbsIDValue = '<c:out value="${board.bbsID}"/>';
 	
 	replyService.add({
 		reply : "js test",
 		replyer : "tester",
-		bno : bnoValue
+		bbsID : bbsIDValue
 	}, function(result){
 		alert("result: " + result);
 	});
@@ -70,24 +70,24 @@
 							<div class="panel-body">
 
 								<div class="form-group">
-									<label>Bno</label> <input class="form-control" name='bno'
-										value='<c:out value="${board.bno }"/>' readonly="readonly" />
+									<label>bbsID</label> <input class="form-control" name='bbsID'
+										value='<c:out value="${board.bbsID }"/>' readonly="readonly" />
 								</div>
 
 								<div class="form-group">
-									<label>Title</label> <input class="form-control" name='title'
-										value='<c:out value="${board.title }"/>' readonly="readonly" />
+									<label>bbsTitle</label> <input class="form-control" name='bbsTitle'
+										value='<c:out value="${board.bbsTitle }"/>' readonly="readonly" />
 								</div>
 
 								<div class="form-group">
 									<label>Text area</label>
-									<textarea class="form-control" rows="3" name='content'
-										readonly="readonly"><c:out value="${board.content}" /> </textarea>
+									<textarea class="form-control" rows="3" name='bbsContent'
+										readonly="readonly"><c:out value="${board.bbsContent}" /> </textarea>
 								</div>
 
 								<div class="form-group">
-									<label>Writer</label> <input class="form-control" name='writer'
-										value='<c:out value="${board.writer }"/>' readonly="readonly" />
+									<label>userid</label> <input class="form-control" name='userid'
+										value='<c:out value="${board.userid }"/>' readonly="readonly" />
 								</div>
 
 
@@ -95,11 +95,11 @@
 								<!-- 	<button data-oper='list' class="btn btn-info">List</button>  -->
 								<!-- 버튼을 누르고 수정을 완료하는것이 아닌, 수정창을 띄우는 버튼이 되어야한다. -->
 								<%-- 	<button data-oper='modify' class="btn btn-default">
-								<a href="/board/modify?bno=<c:out value="${board.bno}"/>">Modify</a>
+								<a href="/board/modify?bbsID=<c:out value="${board.bbsID}"/>">Modify</a>
 								</button>
 								<!-- 삭제버튼 -->
 								<button data-oper='remove' class="btn btn-danger">
-									<a href="/board/remove?bno=<c:out value="${board.bno}"/>">Remove</a>
+									<a href="/board/remove?bbsID=<c:out value="${board.bbsID}"/>">Remove</a>
 								</button>
 								<!-- 리스트 버튼 -->
 								<button data-oper='list' class="btn btn-info">
@@ -113,8 +113,8 @@
 
 								<form id='operForm' action="/board/modify" method="get">
 									<!-- get방식, 수정창 띄워야함 -->
-									<input type='hidden' id='bno' name='bno'
-										value='<c:out value="${board.bno }"/>'>
+									<input type='hidden' id='bbsID' name='bbsID'
+										value='<c:out value="${board.bbsID }"/>'>
 								</form>
 							</div>
 							<!-- panel-body 끝 -->

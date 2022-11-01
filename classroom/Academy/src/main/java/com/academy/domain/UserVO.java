@@ -1,6 +1,5 @@
 package com.academy.domain;
 
-import java.util.Date;
 
 import lombok.Data;
 

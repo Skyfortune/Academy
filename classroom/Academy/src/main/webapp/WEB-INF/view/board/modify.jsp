@@ -63,42 +63,44 @@
 								<form role="form" action="/board/modify" method="post">
 									<!-- 입력 시작 -->
 									<div class="form-group">
-										<label>Bno</label> <input class="form-control" name='bno'
-											value='<c:out value="${board.bno }"/>' readonly="readonly" />
+										<label>bbsID</label> <input class="form-control" name='bbsID'
+											value='<c:out value="${board.bbsID }"/>' readonly="readonly" />
 									</div>
 
 									<div class="form-group">
-										<label>Title</label> <input class="form-control" name='title'
-											value='<c:out value="${board.title }"/>'>
+										<label>Title</label> <input class="form-control" name='bbsTitle'
+											value='<c:out value="${board.bbsTitle }"/>'>
 									</div>
 
 									<div class="form-group">
 										<label>Text area</label>
-										<textarea class="form-control" rows="3" name='content'>
-									<c:out value="${board.content}" /></textarea>
+										<textarea class="form-control" rows="3" name='bbsContent'>
+									<c:out value="${board.bbsContent}" /></textarea>
 									</div>
 
 									<div class="form-group">
 										<label>Writer</label> <input class="form-control"
-											name='writer' value='<c:out value="${board.writer }"/>'
+											name='userid' value='<c:out value="${board.userid }"/>'
 											readonly="readonly" />
 									</div>
 
 									<div class="form-group">
-										<label>RegDate</label> <input class="form-control"
-											name='regDate'
+										<label>bbsDate</label> <input class="form-control"
+											name='bbsDate'
 											value='<fmt:formatDate pattern = "yyyy/MM/dd"
-										value="${board.regdate }"/>'
+										value="${board.bbsDate }"/>'
 											readonly="readonly" />
 									</div>
 
-									<div class="form-group">
+									<%-- <div class="form-group">
 										<label>Update Date</label> <input class="form-control"
 											name='updateDate'
 											value='<fmt:formatDate pattern = "yyyy/MM/dd"
 										value="${board.updateDate }"/>'
 											readonly="readonly" />
-									</div>
+									</div> --%>
+									<!-- 수정 날짜를 넣는것이 좋을까? 일단 빼자, 최초 업로드일만 남겨놓는다. -->
+									
 									<button data-oper='submit' data-oper='modify'
 										class="btn btn-info">Modify</button>
 									<button data-oper='submit' data-oper='remove'

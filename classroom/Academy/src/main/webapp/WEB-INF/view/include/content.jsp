@@ -34,29 +34,32 @@
 						<thead>
 							<tr>
 								<th>#번호</th>
+								<th>수강과정</th>
 								<th>제목</th>
 								<th>작성자</th>
 								<th>작성일</th>
-								<th>수정일</th>
+								
+								
+								
 							</tr>
 						</thead>
 
-						<c:forEach items="${list}" var="board">
+						<c:forEach items="${list}" var="Bbs">
 							<tr>
-								<td><c:out value="${board.bno}" /></td>
-								<%--<td><a href='/board/get?bno=<c:out value="${board.bno}"/>'><c:out value="${list} --%>
+								<td><c:out value="${Bbs.bbsID}" /></td>
 
-								<td><a href='/board/get?bno=<c:out value="${board.bno }"/>'>
-										<c:out value="${board.title }" />
+								<td><c:out value="${Bbs.studycode}" /></td>
+								
+								<td><a href='/board/get?bbsID=<c:out value="${Bbs.bbsID}"/>'>
+										<c:out value="${Bbs.bbsTitle }" />
 								</a></td>
 
-
-
-								<td><c:out value="${board.writer}" /></td>
+								<td><c:out value="${Bbs.userid}" /></td>
+								
 								<td><fmt:formatDate pattern="yyyy-MM-dd"
-										value="${board.regdate}" /></td>
-								<td><fmt:formatDate pattern="yyyy-MM-dd"
-										value="${board.updateDate}" /></td>
+										value="${Bbs.bbsDate}" /></td>
+										
+										
 							</tr>
 						</c:forEach>
 					</table>
